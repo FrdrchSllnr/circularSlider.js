@@ -55,9 +55,9 @@ class cSlider {
 	
 	// hid
 	
-	update(e){
-		this.mouseposnew = {'x':e.pageX,'y':e.pageY}
-		this.mousevector =  {'x':e.pageX- this.mouseposition.x,'y':e.pageY - this.mouseposition.y}
+	update(mx,my){
+		this.mouseposnew = {'x':mx,'y':my}
+		this.mousevector =  {'x':mx- this.mouseposition.x,'y':my - this.mouseposition.y}
 		this.mouseposition = this.mouseposnew
 		this.magnitude= this.getMagnitude(this.mousevector)
 		return this.mousevector
