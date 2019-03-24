@@ -38,7 +38,7 @@ class cSlider {
 	// math
 	normVector(invec){
 		let _mag  = Math.sqrt(invec.x*invec.x+invec.y*invec.y)
-		mag =  _mag // to be moved to class properties
+		this.magnitude =  _mag // to be moved to class properties
 		return {'x':invec.x/_mag,'y':invec.y/_mag}
 	}
 	getMagnitude(invec) {
@@ -113,13 +113,12 @@ class cSlider {
 		//return 'no'
 	}
 	
-	
-	// debug
-	createDot(px,py,diam,opac,inelem){
+}
+
+// debug
+	function createDot(px,py,diam,opac){
 		var circle = document.createElement('div')
-		circle.className = "center_all"
-		//circle.setAttribute('style','border: 3px solid red; border-radius: 50px; width: 100px; height: 100px;-moz-box-sizing: border-box;box-sizing: border-box;')
-		circle.setAttribute('style','-moz-box-sizing: border-box;box-sizing: border-box;')
+		circle.setAttribute('style','-moz-box-sizing: border-box;box-sizing: border-box;display:block;position:absolute;transform: translate( -50%, -50%)')
 		circle.style.backgroundColor = 'white'
 		circle.style.border = '3px solid black'
 		circle.style.width = diam + 'px'
@@ -128,13 +127,8 @@ class cSlider {
 		circle.style.top = py + 'px'
 		circle.style.left = px + 'px'
 		if(opac) circle.style.opacity = opac
-		inelem.appendChild(circle)
+		return circle
 	}
-	
-	
-	
-}
-
 
 
 
