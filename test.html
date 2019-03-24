@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script src="./circularSlider.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<div id='filler' style='position:absolute;top:0;left:0;width:100%;height:100%;'></div>
+</body>
+
+<script>
+
+var ccenter = {'x':300,'y':300}
+var step = 0
+var nstep = 0
+var cslider = new cSlider(ccenter.x,ccenter.y)
+var stepsize = 0.5 // radians
+
+
+var filler = document.getElementById('filler')
+filler.appendChild(createDot(ccenter.x,ccenter.y, 12, 0.6))
+
+window.onmousemove = (e)=> {
+
+	var sp = cslider.getCircularDir(e)
+	nstep = (sp - sp%stepsize)/stepsize
+	
+	if(step!=nstep) {
+		console.log(nstep);step = nstep;
+	}
+}
+
+
+</script>
+<html>
