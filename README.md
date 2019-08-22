@@ -26,7 +26,7 @@ cslider.maxradius = 200
 cslider.minradius = 80
 ```
 
-Visualize the responsive are as a DOM element
+Visualize the responsive area as a DOM element
 
 ```
 yourDOMelement.appendChild(cslider.getAreaElement()) 
