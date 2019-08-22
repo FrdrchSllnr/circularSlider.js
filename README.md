@@ -1,6 +1,6 @@
 # circularSlider.js
 
-<b>Circular Slider around a single point</b>
+<b>Incremental Circular Slider</b>
 
 
 Create a `cSlider` object, update it with your mouse position and get an event for every slider increment
@@ -16,6 +16,11 @@ window.addEventListener('cSliderstep',(e)=>{
 })
 
 window.onmousemove = (e) => cslider.update(e.pageX,e.pageY)
+```
+
+Vary the steps per rotation
+```
+cslider.steps = 32
 ```
 
 
