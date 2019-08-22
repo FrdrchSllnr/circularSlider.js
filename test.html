@@ -9,31 +9,45 @@
 </head>
 
 <body>
-<div id='filler' style='position:absolute;top:0;left:0;width:100%;height:100%;'></div>
+
+<div id='filler' style='position:absolute;top:0;left:0;width:100%;height:100%;'>
+
+<div style="width: 100%;height: 100%;position: relative;display: block;">
+<h id='increm' style="font-family:sans-serif;margin:0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">0</h>
+</div>
+
+</div>
+
+<!-- <audio id='sound' src='./audio/coin.wav'></audio> -->
 </body>
 
 <script>
 
-var ccenter = {'x':300,'y':300}
-var step = 0
-var nstep = 0
-var cslider = new cSlider(ccenter.x,ccenter.y)
-var stepsize = 0.5 // radians
-
-
 var filler = document.getElementById('filler')
-filler.appendChild(createDot(ccenter.x,ccenter.y, 12, 0.6))
+var sound = document.getElementById('sound')
+var wx = window.innerWidth
+var wy = window.innerHeight
 
-window.onmousemove = (e)=> {
+var ismousedown = false
 
-	var sp = cslider.getCircularDir(e.pageX, e.pageY)
-	nstep = (sp - sp%stepsize)/stepsize
+var cslider = new cSlider(wx/2,wy/2)
+cslider.steps =  12 // steps per cycle
+cslider.maxradius = 120; cslider.minradius = 60
+filler.appendChild(cslider.getAreaElement()) 
+
+window.addEventListener('cSliderstep',(e)=>{
 	
-	if(step!=nstep) {
-		console.log(nstep);step = nstep;
-	}
-}
+	//filler.appendChild(cDot(e.detail.x,e.detail.y,6,0.6)) // visualize
+	//var s = sound.cloneNode(true); s.volume=0.1; s.play() // play sound
+	//console.log(e.detail.increment)
+	
+	document.getElementById('increm').innerText = e.detail.increment
+	
+})
 
+window.onmousedown = (e) => ismousedown=true; window.onmouseup = (e) => ismousedown=false
+window.onmousemove = (e)=> cslider.update(e.pageX, e.pageY,ismousedown)
+	
 
 </script>
 <html>
