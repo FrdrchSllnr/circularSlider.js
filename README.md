@@ -4,7 +4,7 @@
 
 use with 
 
-
+```
 var cslider = new cSlider(300, 300) //  center of circle in pixel
 
 window.addEventListener('cSliderstep',(e)=>{
@@ -16,6 +16,8 @@ window.addEventListener('cSliderstep',(e)=>{
 })
 
 window.onmousemove = (e) => cslider.update(e.pageX,e.pageY)
+```
 
 
+© Friedrich Söllner, 2019
 
