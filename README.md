@@ -1,5 +1,6 @@
 # circularSlider.js
-Circular Slider around a single point
+
+<b>Circular Slider around a single point</b>
 
 use with 
 
